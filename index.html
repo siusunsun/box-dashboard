@@ -99,6 +99,40 @@ tbody tr:hover { background: #fafbfc; }
 .tag-trail { background: #d1fae5; color: #065f46; }
 .tag-time { background: #fef3c7; color: #92400e; }
 .tag-eod  { background: #dbeafe; color: #1e40af; }
+/* Watchlist status badges */
+.wl-status {
+  display: inline-block; padding: 3px 9px; border-radius: 5px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.03em;
+}
+.wl-ARMED    { background: #dcfce7; color: #166534; }
+.wl-NEAR     { background: #fef3c7; color: #92400e; }
+.wl-WATCHING { background: #dbeafe; color: #1e40af; }
+.wl-BLOCKED  { background: #f3f4f6; color: #6b7280; }
+.wl-card {
+  border: 1px solid #eceff3; border-radius: 8px;
+  padding: 12px 14px; margin-bottom: 10px; background: #fcfdfe;
+}
+.wl-head {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
+  margin-bottom: 8px;
+}
+.wl-head .sym { font-weight: 700; color: #1f3a5f; font-size: 15px; }
+.wl-head .kv { font-size: 12px; color: #4b5563;
+  font-variant-numeric: tabular-nums; }
+.wl-head .kv b { color: #1c2331; }
+.conds { display: flex; flex-wrap: wrap; gap: 6px; }
+.cond {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 8px; border-radius: 5px; font-size: 11px;
+  border: 1px solid transparent;
+}
+.cond-yes { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
+.cond-no  { background: #fef2f2; color: #b91c1c; border-color: #fecaca; }
+.cond .mk { font-weight: 800; }
+.cond .dt { opacity: 0.75; font-variant-numeric: tabular-nums; }
+.wl-filter {
+  font-size: 11px; color: #6b7280; margin: -6px 0 12px 0;
+}
 .empty {
   color: #9ca3af;
   font-style: italic;
@@ -188,7 +222,7 @@ footer {
 </head><body><div class='container'>
 <header>
 <h1>Box-Theory Paper Trading — Reference (top 500)</h1>
-<div class='subtitle'>Snapshot 2026-05-13 · Config: wider_pyramid_newbox__top500__52w_0.45 (reference) · Run: 2026-05-13 13:40:15 UTC</div><div style='margin-top:10px'><span id='live-status' class='live-status'><span class='dot'></span> Connecting…</span><button id='refresh-btn' class='refresh-btn'>Refresh now</button></div>
+<div class='subtitle'>Snapshot 2026-05-13 · Config: wider_pyramid_newbox__top500__52w_0.45 (reference) · Run: 2026-05-18 08:18:34 UTC</div><div style='margin-top:10px'><span id='live-status' class='live-status'><span class='dot'></span> Connecting…</span><button id='refresh-btn' class='refresh-btn'>Refresh now</button></div>
 </header>
 <section><div class='metrics-grid'>
 <div class='metric'><div class='label'>Equity</div><div class='value'>$185,611</div><div class='change'>from $100,000 starting</div></div>
@@ -209,6 +243,1770 @@ footer {
 <div class='note'>Live cells update every 2 minutes from Bybit's public API (no API key required). Entry / Stop / Days are fixed at snapshot time. <b>Est. P&amp;L</b> = snapshot P&amp;L + (live − snapshot) × qty × direction. Δ since snap shows the intra-day move only.</div>
 </section>
 <section>
+<h2>Potential Setups — Watchlist (80)</h2>
+<div class='wl-filter'><b>0 ARMED</b> (would enter at next daily close) · <b>1 NEAR</b> (within 5% of trigger) · sorted by closeness to firing. Conditions are resolved as of the last daily close; <b>Last $</b> and <b>% to trigger</b> update live every 2 min.</div>
+<div class='wl-card' data-wl-symbol='HTX/USDT'>
+<div class='wl-head'>
+<span class='sym'>HTX/USDT</span>
+<span class='wl-status wl-NEAR'>NEAR</span>
+<span class='kv'>Trigger <b>$0.0000020020</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.0000019620</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger flat'>+2.04%</b></span>
+<span class='kv'>Score <b>0.683</b></span>
+<span class='kv'>73% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 3.3%, age 8 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+33.1%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>3.3%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.20</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Composite score ≥ 0.50<span class='dt'>0.683</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>73% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.12×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.81×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>2.04% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='GOOGLX/USDT'>
+<div class='wl-head'>
+<span class='sym'>GOOGLX/USDT</span>
+<span class='wl-status wl-WATCHING'>WATCHING</span>
+<span class='kv'>Trigger <b>$412.92</b></span>
+<span class='kv'>Last <b class='wl-last'>$393.22</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+5.01%</b></span>
+<span class='kv'>Score <b>0.727</b></span>
+<span class='kv'>100% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 7.0%, age 11 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+52.8%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>7.0%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.09</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Composite score ≥ 0.50<span class='dt'>0.727</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>100% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.00×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.41×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>5.01% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='SUN/USDT'>
+<div class='wl-head'>
+<span class='sym'>SUN/USDT</span>
+<span class='wl-status wl-WATCHING'>WATCHING</span>
+<span class='kv'>Trigger <b>$0.020731</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.019650</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+5.50%</b></span>
+<span class='kv'>Score <b>0.666</b></span>
+<span class='kv'>51% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 6.6%, age 8 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+39.6%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>6.6%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.14</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Composite score ≥ 0.50<span class='dt'>0.666</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>51% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.06×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.32×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>5.50% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='AMZNX/USDT'>
+<div class='wl-head'>
+<span class='sym'>AMZNX/USDT</span>
+<span class='wl-status wl-WATCHING'>WATCHING</span>
+<span class='kv'>Trigger <b>$278.95</b></span>
+<span class='kv'>Last <b class='wl-last'>$261.74</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+6.57%</b></span>
+<span class='kv'>Score <b>0.581</b></span>
+<span class='kv'>100% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 8.9%, age 9 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+41.9%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>8.9%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.02</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Composite score ≥ 0.50<span class='dt'>0.581</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>100% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.02×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.33×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>6.57% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='LBTC/USDT'>
+<div class='wl-head'>
+<span class='sym'>LBTC/USDT</span>
+<span class='wl-status wl-WATCHING'>WATCHING</span>
+<span class='kv'>Trigger <b>$82,703.12</b></span>
+<span class='kv'>Last <b class='wl-last'>$77,000.00</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+7.41%</b></span>
+<span class='kv'>Score <b>0.604</b></span>
+<span class='kv'>66% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 6.8%, age 13 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+36.3%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>6.8%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.08</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Composite score ≥ 0.50<span class='dt'>0.604</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>66% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.01×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.82×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>7.41% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='BTC/USDT'>
+<div class='wl-head'>
+<span class='sym'>BTC/USDT</span>
+<span class='wl-status wl-WATCHING'>WATCHING</span>
+<span class='kv'>Trigger <b>$82,935.85</b></span>
+<span class='kv'>Last <b class='wl-last'>$76,922.60</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+7.82%</b></span>
+<span class='kv'>Score <b>0.540</b></span>
+<span class='kv'>66% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 7.6%, age 13 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+38.1%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>7.6%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.53</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Composite score ≥ 0.50<span class='dt'>0.540</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>66% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.44×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.47×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>7.82% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='ESE/USDT'>
+<div class='wl-head'>
+<span class='sym'>ESE/USDT</span>
+<span class='wl-status wl-WATCHING'>WATCHING</span>
+<span class='kv'>Trigger <b>$0.0099409310</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.0084320000</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+17.90%</b></span>
+<span class='kv'>Score <b>0.637</b></span>
+<span class='kv'>100% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 29.9%, age 13 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+1173.2%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>29.9%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.14</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Composite score ≥ 0.50<span class='dt'>0.637</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>100% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.28×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.84×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>17.90% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='H/USDT'>
+<div class='wl-head'>
+<span class='sym'>H/USDT</span>
+<span class='wl-status wl-WATCHING'>WATCHING</span>
+<span class='kv'>Trigger <b>$0.295806</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.246920</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+19.80%</b></span>
+<span class='kv'>Score <b>0.581</b></span>
+<span class='kv'>74% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 28.5%, age 7 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+281.9%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>28.5%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.13</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Composite score ≥ 0.50<span class='dt'>0.581</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>74% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.09×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.45×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>19.80% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='PSG/USDT'>
+<div class='wl-head'>
+<span class='sym'>PSG/USDT</span>
+<span class='wl-status wl-WATCHING'>WATCHING</span>
+<span class='kv'>Trigger <b>$1.2427</b></span>
+<span class='kv'>Last <b class='wl-last'>$1.0092</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+23.14%</b></span>
+<span class='kv'>Score <b>0.522</b></span>
+<span class='kv'>71% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 30.4%, age 9 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+91.1%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>30.4%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>1.20</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Composite score ≥ 0.50<span class='dt'>0.522</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>71% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.21×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.27×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>23.14% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='CRCLX/USDT'>
+<div class='wl-head'>
+<span class='sym'>CRCLX/USDT</span>
+<span class='wl-status wl-WATCHING'>WATCHING</span>
+<span class='kv'>Trigger <b>$139.62</b></span>
+<span class='kv'>Last <b class='wl-last'>$109.73</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+27.24%</b></span>
+<span class='kv'>Score <b>0.571</b></span>
+<span class='kv'>89% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 24.1%, age 7 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+151.8%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>24.1%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.09</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Composite score ≥ 0.50<span class='dt'>0.571</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>89% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.11×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.49×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>27.24% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='CFG/USDT'>
+<div class='wl-head'>
+<span class='sym'>CFG/USDT</span>
+<span class='wl-status wl-WATCHING'>WATCHING</span>
+<span class='kv'>Trigger <b>$0.350250</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.272400</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+28.58%</b></span>
+<span class='kv'>Score <b>0.611</b></span>
+<span class='kv'>91% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 28.8%, age 10 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+362.2%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>28.8%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.22</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Composite score ≥ 0.50<span class='dt'>0.611</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>91% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.29×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.67×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>28.58% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='BAN/USDT'>
+<div class='wl-head'>
+<span class='sym'>BAN/USDT</span>
+<span class='wl-status wl-WATCHING'>WATCHING</span>
+<span class='kv'>Trigger <b>$0.100881</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.074330</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+35.72%</b></span>
+<span class='kv'>Score <b>0.529</b></span>
+<span class='kv'>58% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 32.1%, age 24 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+151.4%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>32.1%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.58</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Composite score ≥ 0.50<span class='dt'>0.529</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>58% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.40×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.49×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>35.72% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='SAHARA/USDT'>
+<div class='wl-head'>
+<span class='sym'>SAHARA/USDT</span>
+<span class='wl-status wl-WATCHING'>WATCHING</span>
+<span class='kv'>Trigger <b>$0.047638</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.034950</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+36.30%</b></span>
+<span class='kv'>Score <b>0.508</b></span>
+<span class='kv'>46% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 28.9%, age 7 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+238.0%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>28.9%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.71</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Composite score ≥ 0.50<span class='dt'>0.508</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>46% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.35×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.39×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>36.30% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='AEDZ/USDT'>
+<div class='wl-head'>
+<span class='sym'>AEDZ/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.272762</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.272350</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger flat'>+0.15%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>100% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 0.1%, age 50 bars</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Prior leg ≥ 20%<span class='dt'>+0.9%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>0.1%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.00</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>100% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.00×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.00×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>0.15% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='RLUSD/USDT'>
+<div class='wl-head'>
+<span class='sym'>RLUSD/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$1.0021</b></span>
+<span class='kv'>Last <b class='wl-last'>$1.0005</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger flat'>+0.16%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>97% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 0.2%, age 49 bars</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Prior leg ≥ 20%<span class='dt'>+0.2%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>0.2%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.87</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>97% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.18×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.38×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>0.16% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='USDTB/USDT'>
+<div class='wl-head'>
+<span class='sym'>USDTB/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$1.0017</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.999700</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger flat'>+0.20%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>100% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 0.1%, age 19 bars</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Prior leg ≥ 20%<span class='dt'>+0.1%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>0.1%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.01</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>100% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.05×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.57×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>0.20% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='USAT/USDT'>
+<div class='wl-head'>
+<span class='sym'>USAT/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$1.0041</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.999800</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger flat'>+0.43%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>100% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 0.6%, age 49 bars</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Prior leg ≥ 20%<span class='dt'>+0.8%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>0.6%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.05</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>100% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.00×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.43×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>0.43% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='XUSD/USDT'>
+<div class='wl-head'>
+<span class='sym'>XUSD/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$1.0112</b></span>
+<span class='kv'>Last <b class='wl-last'>$1.0000</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger flat'>+1.12%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>95% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 3.0%, age 42 bars</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Prior leg ≥ 20%<span class='dt'>+4.1%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>3.0%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.63</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>95% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.15×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.75×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>1.12% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='MX/USDT'>
+<div class='wl-head'>
+<span class='sym'>MX/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$1.8128</b></span>
+<span class='kv'>Last <b class='wl-last'>$1.7810</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger flat'>+1.79%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>64% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 3.9%, age 54 bars</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Prior leg ≥ 20%<span class='dt'>+5.4%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>3.9%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.69</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>64% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.26×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.36×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>1.79% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='PUFF/USDT'>
+<div class='wl-head'>
+<span class='sym'>PUFF/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.077517</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.073810</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+5.02%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>82% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 7.3%, age 46 bars</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Prior leg ≥ 20%<span class='dt'>+8.3%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>7.3%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.56</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>82% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.39×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.60×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>5.02% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='COOKIE/USDT'>
+<div class='wl-head'>
+<span class='sym'>COOKIE/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.020551</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.019460</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+5.60%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>14% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 21.3%, age 9 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+39.2%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>21.3%</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Vol contraction ≤ 1.30<span class='dt'>2.49</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>14% of 52wk</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>3.31×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>1.48×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>5.60% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='XAUT/USDT'>
+<div class='wl-head'>
+<span class='sym'>XAUT/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$4,869.86</b></span>
+<span class='kv'>Last <b class='wl-last'>$4,542.80</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+7.20%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>87% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 7.9%, age 32 bars</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Prior leg ≥ 20%<span class='dt'>+17.1%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>7.9%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.21</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>87% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.59×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.95×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>7.20% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='BTT/USDT'>
+<div class='wl-head'>
+<span class='sym'>BTT/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.0000003496</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.0000003200</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+9.27%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>52% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 8.8%, age 9 bars</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Prior leg ≥ 20%<span class='dt'>+12.8%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>8.8%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.18</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>52% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.07×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.26×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>9.27% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='NEXO/USDT'>
+<div class='wl-head'>
+<span class='sym'>NEXO/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.935935</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.855900</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+9.35%</b></span>
+<span class='kv'>Score <b>0.437</b></span>
+<span class='kv'>71% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 9.5%, age 27 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+50.4%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>9.5%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.60</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.437</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>71% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.12×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.45×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>9.35% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='KUB/USDT'>
+<div class='wl-head'>
+<span class='sym'>KUB/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.913913</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.829900</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+10.12%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>56% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 10.1%, age 31 bars</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Prior leg ≥ 20%<span class='dt'>+14.2%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>10.1%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.94</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>56% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.12×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.25×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>10.12% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='TWT/USDT'>
+<div class='wl-head'>
+<span class='sym'>TWT/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.537537</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.485400</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+10.74%</b></span>
+<span class='kv'>Score <b>0.647</b></span>
+<span class='kv'>31% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 13.0%, age 7 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+67.3%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>13.0%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.26</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Composite score ≥ 0.50<span class='dt'>0.647</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>31% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.06×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.44×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>10.74% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='CHZ/USDT'>
+<div class='wl-head'>
+<span class='sym'>CHZ/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.052032</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.046700</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+11.42%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>81% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 24.8%, age 25 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+66.8%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>24.8%</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Vol contraction ≤ 1.30<span class='dt'>1.39</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>81% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.35×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.46×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>11.42% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='DIAM/USDT'>
+<div class='wl-head'>
+<span class='sym'>DIAM/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.0081721640</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.0073130000</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+11.75%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>52% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 17.2%, age 60 bars</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Prior leg ≥ 20%<span class='dt'>+16.6%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>17.2%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>1.06</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>52% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.43×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.29×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>11.75% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='HBAR/USDT'>
+<div class='wl-head'>
+<span class='sym'>HBAR/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.099750</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.088940</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+12.15%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>39% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 11.5%, age 9 bars</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Prior leg ≥ 20%<span class='dt'>+19.2%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>11.5%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.47</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>39% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.27×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.40×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>12.15% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='KCS/USDT'>
+<div class='wl-head'>
+<span class='sym'>KCS/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$8.8548</b></span>
+<span class='kv'>Last <b class='wl-last'>$7.8620</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+12.63%</b></span>
+<span class='kv'>Score <b>0.460</b></span>
+<span class='kv'>52% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 11.4%, age 32 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+24.7%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>11.4%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.09</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.460</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>52% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.11×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.48×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>12.63% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='LTC/USDT'>
+<div class='wl-head'>
+<span class='sym'>LTC/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$60.6306</b></span>
+<span class='kv'>Last <b class='wl-last'>$53.8100</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+12.68%</b></span>
+<span class='kv'>Score <b>0.336</b></span>
+<span class='kv'>45% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 11.7%, age 9 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+20.7%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>11.7%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.52</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.336</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>45% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.39×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.50×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>12.68% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='ASTER/USDT'>
+<div class='wl-head'>
+<span class='sym'>ASTER/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.731731</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.648600</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+12.82%</b></span>
+<span class='kv'>Score <b>0.452</b></span>
+<span class='kv'>30% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 14.1%, age 9 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+23.8%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>14.1%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.10</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.452</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>30% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.03×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.40×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>12.82% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='METAX/USDT'>
+<div class='wl-head'>
+<span class='sym'>METAX/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$691.52</b></span>
+<span class='kv'>Last <b class='wl-last'>$609.67</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+13.43%</b></span>
+<span class='kv'>Score <b>0.443</b></span>
+<span class='kv'>85% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 13.9%, age 32 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+33.0%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>13.9%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.21</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.443</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>85% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.00×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.21×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>13.43% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='ETC/USDT'>
+<div class='wl-head'>
+<span class='sym'>ETC/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$10.0941</b></span>
+<span class='kv'>Last <b class='wl-last'>$8.8430</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+14.15%</b></span>
+<span class='kv'>Score <b>0.436</b></span>
+<span class='kv'>45% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 14.5%, age 8 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+29.8%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>14.5%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.80</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.436</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>45% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.18×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.34×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>14.15% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='LINK/USDT'>
+<div class='wl-head'>
+<span class='sym'>LINK/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$10.8779</b></span>
+<span class='kv'>Last <b class='wl-last'>$9.4760</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+14.79%</b></span>
+<span class='kv'>Score <b>0.437</b></span>
+<span class='kv'>42% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 14.1%, age 9 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+34.8%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>14.1%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.66</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.437</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>42% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.31×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.30×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>14.79% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='AVAX/USDT'>
+<div class='wl-head'>
+<span class='sym'>AVAX/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$10.4975</b></span>
+<span class='kv'>Last <b class='wl-last'>$9.1360</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+14.90%</b></span>
+<span class='kv'>Score <b>0.412</b></span>
+<span class='kv'>29% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 14.7%, age 9 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+28.2%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>14.7%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.48</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.412</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>29% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.23×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.39×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>14.90% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='APEX/USDT'>
+<div class='wl-head'>
+<span class='sym'>APEX/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.319920</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.277500</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+15.29%</b></span>
+<span class='kv'>Score <b>0.351</b></span>
+<span class='kv'>12% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 15.2%, age 9 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+22.5%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>15.2%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.42</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.351</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>12% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.35×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.34×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>15.29% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='1INCH/USDT'>
+<div class='wl-head'>
+<span class='sym'>1INCH/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.105225</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.091230</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+15.34%</b></span>
+<span class='kv'>Score <b>0.312</b></span>
+<span class='kv'>38% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 15.5%, age 9 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+23.7%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>15.5%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.73</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.312</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>38% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.26×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.50×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>15.34% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='ADA/USDT'>
+<div class='wl-head'>
+<span class='sym'>ADA/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.288788</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.249600</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+15.70%</b></span>
+<span class='kv'>Score <b>0.394</b></span>
+<span class='kv'>30% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 15.0%, age 9 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+23.9%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>15.0%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.44</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.394</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>30% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.26×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.45×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>15.70% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='CMETH/USDT'>
+<div class='wl-head'>
+<span class='sym'>CMETH/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$2,685.02</b></span>
+<span class='kv'>Last <b class='wl-last'>$2,316.92</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+15.89%</b></span>
+<span class='kv'>Score <b>0.325</b></span>
+<span class='kv'>53% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 19.4%, age 32 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+41.2%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>19.4%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.82</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.325</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>53% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.01×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.19×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>15.89% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='METH/USDT'>
+<div class='wl-head'>
+<span class='sym'>METH/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$2,690.32</b></span>
+<span class='kv'>Last <b class='wl-last'>$2,319.57</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+15.98%</b></span>
+<span class='kv'>Score <b>0.426</b></span>
+<span class='kv'>52% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 14.9%, age 32 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+38.9%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>14.9%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.11</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.426</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>52% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.60×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.48×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>15.98% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='SOL/USDT'>
+<div class='wl-head'>
+<span class='sym'>SOL/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$98.4884</b></span>
+<span class='kv'>Last <b class='wl-last'>$84.7900</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+16.16%</b></span>
+<span class='kv'>Score <b>0.380</b></span>
+<span class='kv'>39% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 15.2%, age 8 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+30.1%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>15.2%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.41</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.380</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>39% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.38×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.33×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>16.16% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='BBSOL/USDT'>
+<div class='wl-head'>
+<span class='sym'>BBSOL/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$113.20</b></span>
+<span class='kv'>Last <b class='wl-last'>$97.2400</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+16.42%</b></span>
+<span class='kv'>Score <b>0.366</b></span>
+<span class='kv'>40% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 15.1%, age 8 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+32.0%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>15.1%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.49</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.366</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>40% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.55×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.38×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>16.42% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='ETH/USDT'>
+<div class='wl-head'>
+<span class='sym'>ETH/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$2,467.46</b></span>
+<span class='kv'>Last <b class='wl-last'>$2,119.36</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+16.43%</b></span>
+<span class='kv'>Score <b>0.396</b></span>
+<span class='kv'>52% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 15.2%, age 32 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+41.4%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>15.2%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.60</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.396</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>52% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.43×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.38×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>16.43% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='CAKE/USDT'>
+<div class='wl-head'>
+<span class='sym'>CAKE/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$1.6677</b></span>
+<span class='kv'>Last <b class='wl-last'>$1.4310</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+16.54%</b></span>
+<span class='kv'>Score <b>0.402</b></span>
+<span class='kv'>36% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 15.4%, age 32 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+42.5%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>15.4%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.54</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.402</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>36% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.44×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.43×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>16.54% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='POL/USDT'>
+<div class='wl-head'>
+<span class='sym'>POL/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.105075</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.090130</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+16.58%</b></span>
+<span class='kv'>Score <b>0.337</b></span>
+<span class='kv'>36% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 16.0%, age 8 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+29.3%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>16.0%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.54</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.337</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>36% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.40×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.57×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>16.58% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='MVL/USDT'>
+<div class='wl-head'>
+<span class='sym'>MVL/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.0014784770</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.0012660000</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+16.78%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>49% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 20.0%, age 43 bars</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Prior leg ≥ 20%<span class='dt'>+17.1%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>20.0%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.92</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>49% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.40×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.63×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>16.78% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='NAKA/USDT'>
+<div class='wl-head'>
+<span class='sym'>NAKA/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.062452</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.053450</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+16.84%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>18% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 17.0%, age 57 bars</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Prior leg ≥ 20%<span class='dt'>+8.5%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>17.0%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.53</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>18% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.24×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.69×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>16.84% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='YFI/USDT'>
+<div class='wl-head'>
+<span class='sym'>YFI/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$2,901.90</b></span>
+<span class='kv'>Last <b class='wl-last'>$2,483.00</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+16.87%</b></span>
+<span class='kv'>Score <b>0.344</b></span>
+<span class='kv'>50% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 17.3%, age 9 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+23.4%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>17.3%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.28</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.344</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>50% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.15×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.54×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>16.87% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='NFT/USDT'>
+<div class='wl-head'>
+<span class='sym'>NFT/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.0000003394</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.0000002904</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+16.89%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>75% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 16.3%, age 31 bars</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Prior leg ≥ 20%<span class='dt'>+9.4%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>16.3%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.84</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>75% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.15×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.64×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>16.89% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='SQD/USDT'>
+<div class='wl-head'>
+<span class='sym'>SQD/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.045596</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.039000</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+16.91%</b></span>
+<span class='kv'>Score <b>0.554</b></span>
+<span class='kv'>17% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 21.6%, age 7 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+65.0%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>21.6%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.75</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Composite score ≥ 0.50<span class='dt'>0.554</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>17% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.14×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.48×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>16.91% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='KILO/USDT'>
+<div class='wl-head'>
+<span class='sym'>KILO/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.0069969900</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.0059820000</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+16.97%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>7% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 16.1%, age 46 bars</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Prior leg ≥ 20%<span class='dt'>+16.0%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>16.1%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>1.10</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>7% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.29×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.14×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>16.97% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='ZENT/USDT'>
+<div class='wl-head'>
+<span class='sym'>ZENT/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.0036106070</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.0030830000</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+17.11%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>27% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 14.6%, age 35 bars</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Prior leg ≥ 20%<span class='dt'>+19.3%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>14.6%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.80</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>27% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.31×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.38×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>17.11% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='SC/USDT'>
+<div class='wl-head'>
+<span class='sym'>SC/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.0010700690</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.0009133000</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+17.17%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>34% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 17.2%, age 60 bars</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Prior leg ≥ 20%<span class='dt'>+4.7%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>17.2%</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Vol contraction ≤ 1.30<span class='dt'>1.75</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>34% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.55×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.25×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>17.17% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='WEMIX/USDT'>
+<div class='wl-head'>
+<span class='sym'>WEMIX/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.324724</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.276300</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+17.53%</b></span>
+<span class='kv'>Score <b>0.535</b></span>
+<span class='kv'>40% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 24.3%, age 11 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+46.0%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>24.3%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.57</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Composite score ≥ 0.50<span class='dt'>0.535</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>40% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.26×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.31×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>17.53% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='CUDIS/USDT'>
+<div class='wl-head'>
+<span class='sym'>CUDIS/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.0098218120</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.0083450000</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+17.70%</b></span>
+<span class='kv'>Score <b>0.519</b></span>
+<span class='kv'>3% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 15.0%, age 8 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+54.8%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>15.0%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.26</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Composite score ≥ 0.50<span class='dt'>0.519</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>3% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.32×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.76×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>17.70% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='MANA/USDT'>
+<div class='wl-head'>
+<span class='sym'>MANA/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.102653</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.086940</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+18.07%</b></span>
+<span class='kv'>Score <b>0.308</b></span>
+<span class='kv'>26% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 18.0%, age 9 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+31.1%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>18.0%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.41</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.308</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>26% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.26×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.38×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>18.07% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='SHIB/USDT'>
+<div class='wl-head'>
+<span class='sym'>SHIB/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.0000067027</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.0000056750</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+18.11%</b></span>
+<span class='kv'>Score <b>0.276</b></span>
+<span class='kv'>45% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 16.7%, age 8 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+28.2%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>16.7%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.82</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.276</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>45% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.25×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.46×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>18.11% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='CBK/USDT'>
+<div class='wl-head'>
+<span class='sym'>CBK/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.291291</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.245700</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+18.56%</b></span>
+<span class='kv'>Score <b>0.407</b></span>
+<span class='kv'>52% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 17.3%, age 41 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+29.4%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>17.3%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.57</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.407</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>52% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.29×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.63×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>18.56% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='FLIP/USDT'>
+<div class='wl-head'>
+<span class='sym'>FLIP/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.249850</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.210500</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+18.69%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>28% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 23.5%, age 60 bars</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Prior leg ≥ 20%<span class='dt'>+1.6%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>23.5%</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Vol contraction ≤ 1.30<span class='dt'>1.75</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>28% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.60×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.83×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>18.69% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='RVN/USDT'>
+<div class='wl-head'>
+<span class='sym'>RVN/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.0065225160</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.0054880000</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+18.85%</b></span>
+<span class='kv'>Score <b>0.322</b></span>
+<span class='kv'>46% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 17.5%, age 24 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+34.2%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>17.5%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.81</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.322</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>46% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.34×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.38×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>18.85% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='ICX/USDT'>
+<div class='wl-head'>
+<span class='sym'>ICX/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.042212</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.035400</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+19.24%</b></span>
+<span class='kv'>Score <b>0.340</b></span>
+<span class='kv'>30% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 23.4%, age 56 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+25.9%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>23.4%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.45</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.340</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>30% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.33×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.28×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>19.24% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='BAT/USDT'>
+<div class='wl-head'>
+<span class='sym'>BAT/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.115435</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.096580</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+19.52%</b></span>
+<span class='kv'>Score <b>0.347</b></span>
+<span class='kv'>38% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 19.0%, age 8 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+29.1%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>19.0%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.40</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.347</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>38% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.16×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.44×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>19.52% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='GMX/USDT'>
+<div class='wl-head'>
+<span class='sym'>GMX/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$7.8518</b></span>
+<span class='kv'>Last <b class='wl-last'>$6.5600</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+19.69%</b></span>
+<span class='kv'>Score <b>0.252</b></span>
+<span class='kv'>42% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 17.3%, age 9 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+39.0%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>17.3%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>1.15</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.252</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>42% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.62×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.31×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>19.69% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='KAVA/USDT'>
+<div class='wl-head'>
+<span class='sym'>KAVA/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.068969</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.057590</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+19.76%</b></span>
+<span class='kv'>Score <b>0.361</b></span>
+<span class='kv'>18% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 18.0%, age 8 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+51.3%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>18.0%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.60</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.361</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>18% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.13×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.38×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>19.76% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='RENDER/USDT'>
+<div class='wl-head'>
+<span class='sym'>RENDER/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$2.1241</b></span>
+<span class='kv'>Last <b class='wl-last'>$1.7700</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+20.01%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>51% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 21.9%, age 42 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+89.0%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>21.9%</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Vol contraction ≤ 1.30<span class='dt'>3.72</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>51% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.03×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.32×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>20.01% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='XTZ/USDT'>
+<div class='wl-head'>
+<span class='sym'>XTZ/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.411111</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.340400</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+20.77%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>49% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 18.5%, age 60 bars</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Prior leg ≥ 20%<span class='dt'>+15.0%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>18.5%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.40</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>49% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.44×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.36×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>20.77% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='SLP/USDT'>
+<div class='wl-head'>
+<span class='sym'>SLP/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.0009409400</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.0007777000</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+20.99%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>64% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 27.8%, age 17 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+87.9%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>27.8%</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Vol contraction ≤ 1.30<span class='dt'>1.38</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>64% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.43×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.81×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>20.99% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='MNT/USDT'>
+<div class='wl-head'>
+<span class='sym'>MNT/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.765465</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.631700</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+21.18%</b></span>
+<span class='kv'>Score <b>0.386</b></span>
+<span class='kv'>27% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 20.6%, age 60 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+46.2%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>20.6%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.70</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.386</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>27% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.23×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.28×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>21.18% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='PENDLE/USDT'>
+<div class='wl-head'>
+<span class='sym'>PENDLE/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$2.2022</b></span>
+<span class='kv'>Last <b class='wl-last'>$1.8150</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+21.33%</b></span>
+<span class='kv'>Score <b>0.530</b></span>
+<span class='kv'>41% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 18.6%, age 7 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+127.0%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>18.6%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.70</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Composite score ≥ 0.50<span class='dt'>0.530</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>41% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.24×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.24×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>21.33% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='UNI/USDT'>
+<div class='wl-head'>
+<span class='sym'>UNI/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$4.1722</b></span>
+<span class='kv'>Last <b class='wl-last'>$3.4290</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+21.67%</b></span>
+<span class='kv'>Score <b>0.424</b></span>
+<span class='kv'>40% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 18.9%, age 9 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+38.8%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>18.9%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.44</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.424</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>40% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.19×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.32×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>21.67% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='ZIL/USDT'>
+<div class='wl-head'>
+<span class='sym'>ZIL/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.0047607560</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.0039060000</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+21.88%</b></span>
+<span class='kv'>Score <b>0.403</b></span>
+<span class='kv'>38% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 20.3%, age 13 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+39.8%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>20.3%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.15</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.403</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>38% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.04×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.41×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>21.88% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='KAS/USDT'>
+<div class='wl-head'>
+<span class='sym'>KAS/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.041041</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.033670</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+21.89%</b></span>
+<span class='kv'>Score <b>0.379</b></span>
+<span class='kv'>45% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 18.4%, age 8 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+44.9%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>18.4%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.51</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.379</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>45% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.15×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.26×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>21.89% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='SOSO/USDT'>
+<div class='wl-head'>
+<span class='sym'>SOSO/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.450150</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.368200</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+22.26%</b></span>
+<span class='kv'>Score <b>0.304</b></span>
+<span class='kv'>47% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 20.4%, age 31 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+50.8%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>20.4%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.56</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.304</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Within 55% of 52-wk high<span class='dt'>47% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.72×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>1.08×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>22.26% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='SAND/USDT'>
+<div class='wl-head'>
+<span class='sym'>SAND/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.086556</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.070780</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+22.29%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>26% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 20.8%, age 24 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+23.2%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>20.8%</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Vol contraction ≤ 1.30<span class='dt'>1.44</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>26% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.44×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.33×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>22.29% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='VET/USDT'>
+<div class='wl-head'>
+<span class='sym'>VET/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.0081501420</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.0066610000</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+22.36%</b></span>
+<span class='kv'>Score <b>0.235</b></span>
+<span class='kv'>30% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 20.4%, age 11 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+27.0%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>20.4%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.92</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.235</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>30% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.35×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.31×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>22.36% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='BABYDOGE/USDT'>
+<div class='wl-head'>
+<span class='sym'>BABYDOGE/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.0000000005</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.0000000004</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+22.45%</b></span>
+<span class='kv'>Score <b>0.305</b></span>
+<span class='kv'>34% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 19.5%, age 9 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+39.1%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>19.5%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.48</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.305</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>34% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.18×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.30×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>22.45% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='VELO/USDT'>
+<div class='wl-head'>
+<span class='sym'>VELO/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.0044294250</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.0035880000</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+23.45%</b></span>
+<span class='kv'>Score <b>0.451</b></span>
+<span class='kv'>27% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 19.4%, age 9 bars</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Prior leg ≥ 20%<span class='dt'>+45.8%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>19.4%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.43</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.451</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>27% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.28×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.31×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>23.45% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='COOK/USDT'>
+<div class='wl-head'>
+<span class='sym'>COOK/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.0036356320</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.0029440000</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+23.49%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>17% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 21.9%, age 58 bars</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Prior leg ≥ 20%<span class='dt'>+15.2%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>21.9%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.78</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>17% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.52×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>1.30×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>23.49% below trigger</span></span>
+</div>
+</div>
+<div class='wl-card' data-wl-symbol='WAVES/USDT'>
+<div class='wl-head'>
+<span class='sym'>WAVES/USDT</span>
+<span class='wl-status wl-BLOCKED'>BLOCKED</span>
+<span class='kv'>Trigger <b>$0.476876</b></span>
+<span class='kv'>Last <b class='wl-last'>$0.385500</b></span>
+<span class='kv'>To trigger <b class='wl-totrigger neg'>+23.70%</b></span>
+<span class='kv'>Score <b>0.000</b></span>
+<span class='kv'>39% of 52wk</span>
+</div>
+<div class='conds'>
+<span class='cond cond-yes'><span class='mk'>✓</span>Active box<span class='dt'>height 20.2%, age 31 bars</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Prior leg ≥ 20%<span class='dt'>+19.8%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Retrace ≤ 45%<span class='dt'>20.2%</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Vol contraction ≤ 1.30<span class='dt'>0.49</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Composite score ≥ 0.50<span class='dt'>0.000</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Within 55% of 52-wk high<span class='dt'>39% of 52wk</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Volume ≥ 1× 20d avg (on breakout)<span class='dt'>0.62×</span></span>
+<span class='cond cond-yes'><span class='mk'>✓</span>Not over-extended (≤ 3×ATR)<span class='dt'>0.69×ATR</span></span>
+<span class='cond cond-no'><span class='mk'>✗</span>Breakout: close &gt; box top<span class='dt'>23.70% below trigger</span></span>
+</div>
+</div>
+</section>
+<section>
 <h2>Recently Closed Trades (6)</h2>
 <table><thead><tr><th>Symbol</th><th>Entry</th><th>Exit</th><th>Reason</th><th class='num'>Bars</th><th class='num'>Entry $</th><th class='num'>Exit $</th><th class='num'>R</th><th class='num'>Realized P&amp;L</th></tr></thead><tbody>
 <tr><td class='symbol'>ALGO/USDT</td><td>2026-05-08</td><td>2026-05-13</td><td><span class='tag tag-stop'>stop</span></td><td class='num'>6</td><td class='num'>$0.128771</td><td class='num'>$0.128449</td><td class='num neg'>-0.24R</td><td class='num neg'>−$443</td></tr>
@@ -221,12 +2019,16 @@ footer {
 </section>
 <footer>Generated by Box-Theory paper-trading harness. Past performance is not indicative of future results. All P&amp;L is net of slippage (25bps) and exchange fees (10bps). Position sizing: 1% of equity at risk per trade.</footer>
 </div>
-<script type="application/json" id="state">{"snapshot_date": "2026-05-13", "open_positions": [{"symbol": "LUNC/USDT", "direction": 1, "entry_date": "2026-04-24", "entry_price": 5.2881875e-05, "initial_stop": 4.7939375e-05, "last_price": 8.999445000000001e-05, "qty": 174832341.6983984, "bars_held": 20, "unrealized_pnl": 4828.583816173971, "r_multiple": 5.587934694375314, "pyramid_taken": false, "exit_reason": "end_of_data"}, {"symbol": "TRX/USDT", "direction": 1, "entry_date": "2026-05-04", "entry_price": 0.33954675, "initial_stop": 0.33125925, "last_price": 0.3481275, "qty": 213032.43355528885, "bars_held": 10, "unrealized_pnl": 1760.8847745592343, "r_multiple": 0.9973823267873289, "pyramid_taken": false, "exit_reason": "end_of_data"}, {"symbol": "VVV/USDT", "direction": 1, "entry_date": "2026-05-06", "entry_price": 10.3267525, "initial_stop": 9.299788214285714, "last_price": 15.2747175, "qty": 1768.8751378707211, "bars_held": 8, "unrealized_pnl": 6942.082334709815, "r_multiple": 3.821529723047124, "pyramid_taken": false, "exit_reason": "end_of_data"}, {"symbol": "NVDAX/USDT", "direction": 1, "entry_date": "2026-05-12", "entry_price": 220.48985, "initial_stop": 210.4784214285714, "last_price": 223.509825, "qty": 133.57889040512333, "bars_held": 2, "unrealized_pnl": 373.54871513307125, "r_multiple": 0.2793272863156406, "pyramid_taken": false, "exit_reason": "end_of_data"}]}</script>
+<script type="application/json" id="state">{"snapshot_date": "2026-05-13", "open_positions": [{"symbol": "LUNC/USDT", "direction": 1, "entry_date": "2026-04-24", "entry_price": 5.2881875e-05, "initial_stop": 4.7939375e-05, "last_price": 8.999445000000001e-05, "qty": 174832341.6983984, "bars_held": 20, "unrealized_pnl": 4828.583816173971, "r_multiple": 5.587934694375314, "pyramid_taken": false, "exit_reason": "end_of_data"}, {"symbol": "TRX/USDT", "direction": 1, "entry_date": "2026-05-04", "entry_price": 0.33954675, "initial_stop": 0.33125925, "last_price": 0.3481275, "qty": 213032.43355528885, "bars_held": 10, "unrealized_pnl": 1760.8847745592343, "r_multiple": 0.9973823267873289, "pyramid_taken": false, "exit_reason": "end_of_data"}, {"symbol": "VVV/USDT", "direction": 1, "entry_date": "2026-05-06", "entry_price": 10.3267525, "initial_stop": 9.299788214285714, "last_price": 15.2747175, "qty": 1768.8751378707211, "bars_held": 8, "unrealized_pnl": 6942.082334709815, "r_multiple": 3.821529723047124, "pyramid_taken": false, "exit_reason": "end_of_data"}, {"symbol": "NVDAX/USDT", "direction": 1, "entry_date": "2026-05-12", "entry_price": 220.48985, "initial_stop": 210.4784214285714, "last_price": 223.509825, "qty": 133.57889040512333, "bars_held": 2, "unrealized_pnl": 373.54871513307125, "r_multiple": 0.2793272863156406, "pyramid_taken": false, "exit_reason": "end_of_data"}], "watchlist": [{"symbol": "HTX/USDT", "trigger_price": 2.0019999999999996e-06, "direction": 1}, {"symbol": "GOOGLX/USDT", "trigger_price": 412.92250999999993, "direction": 1}, {"symbol": "SUN/USDT", "trigger_price": 0.020730709999999996, "direction": 1}, {"symbol": "AMZNX/USDT", "trigger_price": 278.94867, "direction": 1}, {"symbol": "LBTC/USDT", "trigger_price": 82703.12049999999, "direction": 1}, {"symbol": "BTC/USDT", "trigger_price": 82935.85299999999, "direction": 1}, {"symbol": "ESE/USDT", "trigger_price": 0.009940931, "direction": 1}, {"symbol": "H/USDT", "trigger_price": 0.29580550999999994, "direction": 1}, {"symbol": "PSG/USDT", "trigger_price": 1.2427415, "direction": 1}, {"symbol": "CRCLX/USDT", "trigger_price": 139.61947999999998, "direction": 1}, {"symbol": "CFG/USDT", "trigger_price": 0.35024989999999995, "direction": 1}, {"symbol": "BAN/USDT", "trigger_price": 0.10088077999999999, "direction": 1}, {"symbol": "SAHARA/USDT", "trigger_price": 0.047637589999999994, "direction": 1}, {"symbol": "AEDZ/USDT", "trigger_price": 0.27276248999999997, "direction": 1}, {"symbol": "RLUSD/USDT", "trigger_price": 1.0021011, "direction": 1}, {"symbol": "USDTB/USDT", "trigger_price": 1.0017006999999998, "direction": 1}, {"symbol": "USAT/USDT", "trigger_price": 1.0041031, "direction": 1}, {"symbol": "XUSD/USDT", "trigger_price": 1.0112101999999998, "direction": 1}, {"symbol": "MX/USDT", "trigger_price": 1.8128109999999997, "direction": 1}, {"symbol": "PUFF/USDT", "trigger_price": 0.07751743999999999, "direction": 1}, {"symbol": "COOKIE/USDT", "trigger_price": 0.020550529999999997, "direction": 1}, {"symbol": "XAUT/USDT", "trigger_price": 4869.865, "direction": 1}, {"symbol": "BTT/USDT", "trigger_price": 3.4964929999999996e-07, "direction": 1}, {"symbol": "NEXO/USDT", "trigger_price": 0.935935, "direction": 1}, {"symbol": "KUB/USDT", "trigger_price": 0.913913, "direction": 1}, {"symbol": "TWT/USDT", "trigger_price": 0.5375369999999999, "direction": 1}, {"symbol": "CHZ/USDT", "trigger_price": 0.05203197999999999, "direction": 1}, {"symbol": "DIAM/USDT", "trigger_price": 0.008172163999999999, "direction": 1}, {"symbol": "HBAR/USDT", "trigger_price": 0.09974965, "direction": 1}, {"symbol": "KCS/USDT", "trigger_price": 8.854845999999998, "direction": 1}, {"symbol": "LTC/USDT", "trigger_price": 60.63056999999999, "direction": 1}, {"symbol": "ASTER/USDT", "trigger_price": 0.7317309999999999, "direction": 1}, {"symbol": "METAX/USDT", "trigger_price": 691.5208299999999, "direction": 1}, {"symbol": "ETC/USDT", "trigger_price": 10.094083999999999, "direction": 1}, {"symbol": "LINK/USDT", "trigger_price": 10.877867, "direction": 1}, {"symbol": "AVAX/USDT", "trigger_price": 10.497487, "direction": 1}, {"symbol": "APEX/USDT", "trigger_price": 0.31991959999999997, "direction": 1}, {"symbol": "1INCH/USDT", "trigger_price": 0.10522511999999999, "direction": 1}, {"symbol": "ADA/USDT", "trigger_price": 0.28878849999999995, "direction": 1}, {"symbol": "CMETH/USDT", "trigger_price": 2685.02234, "direction": 1}, {"symbol": "METH/USDT", "trigger_price": 2690.31763, "direction": 1}, {"symbol": "SOL/USDT", "trigger_price": 98.48839, "direction": 1}, {"symbol": "BBSOL/USDT", "trigger_price": 113.20308999999999, "direction": 1}, {"symbol": "ETH/USDT", "trigger_price": 2467.4649999999997, "direction": 1}, {"symbol": "CAKE/USDT", "trigger_price": 1.6676659999999996, "direction": 1}, {"symbol": "POL/USDT", "trigger_price": 0.10507496999999998, "direction": 1}, {"symbol": "MVL/USDT", "trigger_price": 0.001478477, "direction": 1}, {"symbol": "NAKA/USDT", "trigger_price": 0.062452389999999997, "direction": 1}, {"symbol": "YFI/USDT", "trigger_price": 2901.899, "direction": 1}, {"symbol": "NFT/USDT", "trigger_price": 3.394391e-07, "direction": 1}, {"symbol": "SQD/USDT", "trigger_price": 0.04559555, "direction": 1}, {"symbol": "KILO/USDT", "trigger_price": 0.006996989999999999, "direction": 1}, {"symbol": "ZENT/USDT", "trigger_price": 0.0036106069999999996, "direction": 1}, {"symbol": "SC/USDT", "trigger_price": 0.0010700689999999999, "direction": 1}, {"symbol": "WEMIX/USDT", "trigger_price": 0.32472439999999997, "direction": 1}, {"symbol": "CUDIS/USDT", "trigger_price": 0.009821812, "direction": 1}, {"symbol": "MANA/USDT", "trigger_price": 0.10265255, "direction": 1}, {"symbol": "SHIB/USDT", "trigger_price": 6.702695999999999e-06, "direction": 1}, {"symbol": "CBK/USDT", "trigger_price": 0.29129099999999997, "direction": 1}, {"symbol": "FLIP/USDT", "trigger_price": 0.24984959999999995, "direction": 1}, {"symbol": "RVN/USDT", "trigger_price": 0.006522515999999999, "direction": 1}, {"symbol": "ICX/USDT", "trigger_price": 0.04221216999999999, "direction": 1}, {"symbol": "BAT/USDT", "trigger_price": 0.11543532, "direction": 1}, {"symbol": "GMX/USDT", "trigger_price": 7.851844, "direction": 1}, {"symbol": "KAVA/USDT", "trigger_price": 0.0689689, "direction": 1}, {"symbol": "RENDER/USDT", "trigger_price": 2.124122, "direction": 1}, {"symbol": "XTZ/USDT", "trigger_price": 0.41111069999999994, "direction": 1}, {"symbol": "SLP/USDT", "trigger_price": 0.0009409399999999999, "direction": 1}, {"symbol": "MNT/USDT", "trigger_price": 0.7654647, "direction": 1}, {"symbol": "PENDLE/USDT", "trigger_price": 2.2022, "direction": 1}, {"symbol": "UNI/USDT", "trigger_price": 4.172168, "direction": 1}, {"symbol": "ZIL/USDT", "trigger_price": 0.004760756, "direction": 1}, {"symbol": "KAS/USDT", "trigger_price": 0.041040999999999994, "direction": 1}, {"symbol": "SOSO/USDT", "trigger_price": 0.45014969999999993, "direction": 1}, {"symbol": "SAND/USDT", "trigger_price": 0.08655647, "direction": 1}, {"symbol": "VET/USDT", "trigger_price": 0.008150141999999999, "direction": 1}, {"symbol": "BABYDOGE/USDT", "trigger_price": 4.897892999999999e-10, "direction": 1}, {"symbol": "VELO/USDT", "trigger_price": 0.004429425, "direction": 1}, {"symbol": "COOK/USDT", "trigger_price": 0.0036356319999999993, "direction": 1}, {"symbol": "WAVES/USDT", "trigger_price": 0.4768763999999999, "direction": 1}]}</script>
 <script>
 (function () {
   const REFRESH_MS = 120000;  // 2 minutes
   const STATE = JSON.parse(document.getElementById('state').textContent);
-  const SYMBOLS = STATE.open_positions.map(p => p.symbol.replace('/', ''));
+  const WL = STATE.watchlist || [];
+  const SYMBOLS = Array.from(new Set([
+    ...STATE.open_positions.map(p => p.symbol.replace('/', '')),
+    ...WL.map(w => w.symbol.replace('/', '')),
+  ]));
   if (SYMBOLS.length === 0) { setStatus('live', new Date()); return; }
 
   function fmtPrice(p) {
@@ -327,6 +2129,31 @@ footer {
     }
   }
 
+  function updateWatchlistCells(symbol, livePrice) {
+    const w = WL.find(x => x.symbol.replace('/','') === symbol);
+    if (!w) return;
+    const card = document.querySelector(`div[data-wl-symbol="${w.symbol}"]`);
+    if (!card) return;
+    const trig = w.trigger_price;
+    const ptt = (trig - livePrice) / livePrice * 100;  // neg = above trigger
+    const lastEl = card.querySelector('.wl-last');
+    const pttEl = card.querySelector('.wl-totrigger');
+    if (lastEl) {
+      const old = lastEl.textContent, next = fmtPrice(livePrice);
+      lastEl.textContent = next;
+      if (old !== next) { lastEl.classList.remove('flash-cell');
+        void lastEl.offsetWidth; lastEl.classList.add('flash-cell'); }
+    }
+    if (pttEl) {
+      const cls = ptt <= 0 ? 'pos' : (ptt <= 5 ? 'flat' : 'neg');
+      const old = pttEl.textContent, next = fmtSigned(ptt) + '%';
+      pttEl.className = 'wl-totrigger ' + cls;
+      pttEl.textContent = next;
+      if (old !== next) { pttEl.classList.remove('flash-cell');
+        void pttEl.offsetWidth; pttEl.classList.add('flash-cell'); }
+    }
+  }
+
   async function refresh() {
     try {
       const prices = await fetchPrices();
@@ -334,6 +2161,7 @@ footer {
       for (const sym of SYMBOLS) {
         if (prices[sym] !== undefined) {
           updateCells(sym, prices[sym]);
+          updateWatchlistCells(sym, prices[sym]);
           n++;
         }
       }
